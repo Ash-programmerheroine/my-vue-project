@@ -1,16 +1,39 @@
 const app = Vue.createApp({
   data() {
     return {
-      counter: 0,
+      counter: 20,
       name: "",
+      confirmedName:"",
     };
   },
+  computed:{
+    fullName(){
+      console.log('running agaian');
+      if(this.name===''){
+        return '';
+      }
+      return this.name + ' ' +'khanam'
+    },
+  },
   methods: {
-    submitForm(event) {
-      event.preventDefault();
+    outputFullName(){
+      console.log('running agaian');
+      if(this.name===''){
+        return '';
+      }
+      return this.name + ' ' +'khanam'
+    },
+    resetInput(){
+      this.name=''
+    },
+    confirmInput(){
+      this.confirmedName = this.name;
+    },
+    submitForm() {
+      
       alert('submitted')
     },
-    setName(event, lastName) {
+    setName(event) {
       this.name = event.target.value + " " + lastName;
     },
     add(num) {
